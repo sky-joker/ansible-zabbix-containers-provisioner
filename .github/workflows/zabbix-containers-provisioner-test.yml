@@ -4,16 +4,16 @@ on: [push]
 jobs:
   provisioning:
     runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@master
+    steps:
+      - uses: actions/checkout@master
 
-    - name: Set up Python
-      uses: actions/setup-python@v1.1.0
-      with:
-        python-version: [3.6]
+      - name: Set up Python
+        uses: actions/setup-python@v1.1.0
+        with:
+          python-version: [3.6]
 
-    - name: Install dependencies
-      run: pip install ansible docker-compose
+      - name: Install dependencies
+        run: pip install ansible docker-compose
 
-    - name: zabbix containers provisioning
-      run: ansible-playbook zabbix-servers-compose.yml
+      - name: zabbix containers provisioning
+        run: ansible-playbook zabbix-servers-compose.yml
